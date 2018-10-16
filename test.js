@@ -17,6 +17,8 @@ describe('Checkout Google.com', function () {
         await driver.wait(until.elementLocated(By.id('rcnt')), 10000);
 
         let title = await driver.getTitle();
-        assert.equal(title, 'dalenguyen - Google Search');      
-    })
+        assert.equal(title, 'dalenguyen - Google Search');              
+    });
+
+    after(() => driver && driver.quit());
 })
