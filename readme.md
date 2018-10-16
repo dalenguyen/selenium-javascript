@@ -20,3 +20,7 @@ yarn run test
 
 + [Installation](docs/installation.md)
 + [Getting Started](docs/getting-started.md)
+
+## Contributions
+
+This is an ongoing project. Please feel free to ask questions, request features, create pull request, or [tickets](https://github.com/dalenguyen/selenium-javascript/issues/new).

@@ -56,7 +56,7 @@ Next, we will write steps for our test. For the element ID, you can find it by o
 
 ```javascript
 describe('Checkout Google.com', function () {
-    ....
+    ...
 
     it('Search on Google', async function() {
         // Load the page
@@ -68,7 +68,7 @@ describe('Checkout Google.com', function () {
         // Wait for the results box by id
         await driver.wait(until.elementLocated(By.id('rcnt')), 10000);
 
-        // We will the title value and test it
+        // We will get the title value and test it
         let title = await driver.getTitle();
         assert.equal(title, 'dalenguyen - Google Search');
     });
