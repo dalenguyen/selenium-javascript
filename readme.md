@@ -1,6 +1,6 @@
 # Automation Testing with Selenium and JavaScript
 
-This is a guide to UI Automation Testing by using Selenium and JavaScript
+This is a unofficial guide to UI Automation Testing by using Selenium and JavaScript.
 
 ## Getting Started
 
@@ -15,3 +15,8 @@ yarn install
 ```sh
 yarn run test
 ```
+
+## Documentation
+
++ [Installation](docs/installation.md)
++ [Getting Started](docs/getting-started.md)
