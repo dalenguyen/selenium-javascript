@@ -46,6 +46,6 @@ element.sendKeys('hello world', Key.ARROW_DOWN)
 You can also easily [interact or get the information](https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_WebElementPromise.html) of the element after you find it.
 
 ```sh
-driver.findElement({id: 'submit'}).click();
-driver.findElement({id: 'username'}).clear();
+driver.findElement({id: 'submit'}).click()
+driver.findElement({id: 'username'}).clear()
 ```
