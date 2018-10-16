@@ -1,6 +1,6 @@
 # Automation Testing with Selenium and JavaScript
 
-This is a unofficial guide to UI Automation Testing by using Selenium and JavaScript.
+This is an unofficial guide to UI Automation Testing by using Selenium and JavaScript.
 
 ## Getting Started
 
@@ -20,7 +20,12 @@ yarn run test
 
 + [Installation](docs/installation.md)
 + [Getting Started](docs/getting-started.md)
++ [Navigating](docs/navigating.md)
 
 ## Contributions
 
 This is an ongoing project. Please feel free to ask questions, request features, create pull request, or [tickets](https://github.com/dalenguyen/selenium-javascript/issues/new).
+
+## References
+
+[Selenium-Python](https://selenium-python.readthedocs.io)
