@@ -1,0 +1,23 @@
+{
+  "name": "selenium-javascript",
+  "version": "1.0.0",
+  "description": "Automation Testing with Selenium and JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive --timeout 10000 test.js"
+  },
+  "repository": "git@github.com:dalenguyen/selenium-javascript.git",
+  "author": "Dale Nguyen <dungnq@itbox4vn.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chromedriver": "^2.42.1",
+    "selenium-webdriver": "^4.0.0-alpha.1"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "engines": {
+    "node": "^8.9.2",
+    "yarn": "^1.3.2"
+  }
+}
