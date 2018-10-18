@@ -5,7 +5,7 @@
 const {Browser, By, Key, until} = require("selenium-webdriver");
 const {suite} = require("selenium-webdriver/testing");
 const assert = require('assert');
-const DragAndDropPage = require('../js/drag_and_drop.js');
+const DragAndDropPage = require('../pages/drag_and_drop.js');
 
 suite(function(env) {
     describe('Drag and drop demo', function() {

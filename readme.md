@@ -21,6 +21,7 @@ yarn run test
 + [Installation](docs/installation.md)
 + [Getting Started](docs/getting-started.md)
 + [Navigating](docs/navigating.md)
++ [Page Objects](docs/pageObjects.md)
 
 ## Contributions
 

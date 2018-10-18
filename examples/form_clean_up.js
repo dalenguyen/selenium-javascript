@@ -1,19 +1,23 @@
 const assert = require('assert');
 const AssertionError = require('assert').AssertionError;
-const {Builder, By, Key, until} = require('selenium-webdriver');
+const { Builder } = require('selenium-webdriver');
+const FormPage = require('../pages/form_page');
+const ConfirmationPage = require('../pages/confirmation_page');
 
 var capabilities = {
     'browserName' : 'chrome',
     'chromeOptions' : {
       'args' : [
           "--disable-plugins"
-        // , "--headless"
+        , "--headless"
     ]
     }
 }
 
 describe('Checkout Formy', () => {
     let driver;
+    let formPage;
+    let confirmationPage;
 
     before(async () => {
         driver = await new Builder().withCapabilities(capabilities).build();        
@@ -23,13 +27,15 @@ describe('Checkout Formy', () => {
         try {
             await driver.get('http://formy-project.herokuapp.com/form');
 
-            // await driver.sleep(3000); 
+            // Using Page Objects
+            formPage = new FormPage(driver);
+            formPage.submitForm(driver);
 
-            submitForm(driver);
+            confirmationPage = new ConfirmationPage(driver);
                
             // assertion codes...       
-            await waitForAlertBanner(driver);
-            assert.equal('The form was successfully submitted!!!', await getAlertBannerText(driver));
+            await confirmationPage.waitForAlertBanner();
+            assert.equal('The form was successfully submitted!', await confirmationPage.getAlertBannerText());
                  
         } catch (error) {
             if (error instanceof AssertionError) {
@@ -44,23 +50,3 @@ describe('Checkout Formy', () => {
 
     after(async () => driver.quit());
 })
-
-async function submitForm(driver) {
-    await driver.findElement(By.id('first-name')).sendKeys('Dale');
-    await driver.findElement(By.id('last-name')).sendKeys('Nguyen');
-    await driver.findElement(By.id('job-title')).sendKeys('Application Developer');
-    await driver.findElement(By.id('radio-button-2')).click();
-    await driver.findElement(By.id('checkbox-1')).click();
-    await driver.findElement(By.css("option[value='1']")).click();
-    await driver.findElement(By.id('datepicker')).sendKeys('11/13/2018', Key.RETURN);    
-
-    await driver.findElement(By.css('.btn.btn-lg.btn-primary')).click(); 
-}
-
-async function waitForAlertBanner(driver) {
-    await driver.wait(until.elementLocated(By.className('alert')), 10000);
-}
-
-async function getAlertBannerText(driver) {
-    return await driver.findElement(By.className('alert')).getText();
-}
