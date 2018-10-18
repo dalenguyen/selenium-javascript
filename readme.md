@@ -31,3 +31,4 @@ This is an ongoing project. Please feel free to ask questions, request features,
 [Selenium-Python](https://selenium-python.readthedocs.io)
 [Formy](http://formy-project.herokuapp.com/)
 [Team Tree House](https://teamtreehouse.com/library/drag-and-drop)
+[Selenium Essential Training](https://www.lynda.com/Selenium-tutorials/Selenium-Essential-Training/696863-2.html)

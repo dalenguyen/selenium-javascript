@@ -68,5 +68,44 @@ Prefer Using
 CSS Selector are **the most powerful** choice in automation and can be used in conjunction with other types of locators.
 
 ```javascript
+// Tag and Name
+<input type='text' name='username' id='username'>
 driver.findElement(By.css("input[name='username']"))
+
+// Tag and Class
+<input class='q' type='text'>
+driver.findElement(By.css('input.q'))
+
+// Tag and ID
+<input id='q' type='text'>
+driver.findElement(By.css('input#q'))
+
+// Tag and Attribute
+<input type='radio' value='radio button'>
+driver.findElement(By.css("input[type='radio']"))
+driver.findElement(By.css("input[value='radio button']"))
+
+// Multiple Classes
+<button type='button' class='btn btn-lg btn-info'>
+driver.findElement(By.css('.btn.btn-lg.btn-info'))
+
+// Match Text
+Prefix      a[id^='id_prefix_']
+Suffix      a[id$='id_pattern']
+Substring   a[id*='_id_sufix']
+Exact match a[id='id']
+
+// Child Nodes
+<div id='parent'>
+    <a id='child' href='/child'>Child<a>
+</div>
+driver.findElement(By.css('div#parent a'))
+
+// Nth-Child
+<ul id='list'>
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+</ul>
+driver.findElement(By.css('#list li:nth-child(n)'))
 ```
