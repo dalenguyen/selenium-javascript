@@ -1,5 +1,6 @@
 const assert = require('assert');
-const {Builder, By, Key} = require('selenium-webdriver');
+const AssertionError = require('assert').AssertionError;
+const {Builder, By, Key, until} = require('selenium-webdriver');
 
 var capabilities = {
     'browserName' : 'chrome',
@@ -34,14 +35,20 @@ describe('Checkout Formy', () => {
 
             // await driver.sleep(3000); 
 
-            await driver.findElement(By.css('.btn.btn-lg.btn-primary')).click();            
-
-            // await driver.sleep(3000); 
+            await driver.findElement(By.css('.btn.btn-lg.btn-primary')).click();                        
                
             // assertion codes...       
+            let alertText = await driver.wait(until.elementLocated(By.className('alert')), 10000);
+            assert.equal('The form was successfully submitted!!!', await alertText.getText());
                  
         } catch (error) {
-            console.log(error);                   
+            if (error instanceof AssertionError) {
+                // Output expected AssertionErrors.
+                throw new Error(error);                
+            } else {
+                // Output unexpected Errors.
+                console.log(error);
+            }                   
         }                
     });
 
