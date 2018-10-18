@@ -10,7 +10,9 @@ In order to submit a form, I created a FormPage class inside pages folder:
 
 ```javascript
 // pages/form_page.js
-const {By, Key} = require("selenium-webdriver");
+// const {By, Key} = require("selenium-webdriver"); // 605K
+const { By } = require("selenium-webdriver/lib/by"); // 2K
+const { Key } = require("selenium-webdriver/lib/input"); // 42.3K
 
 class FormPage {
     constructor(driver) {
@@ -25,8 +27,7 @@ class FormPage {
         await this.driver.findElement(By.id('checkbox-1')).click();
         await this.driver.findElement(By.css("option[value='1']")).click();
         await this.driver.findElement(By.id('datepicker')).sendKeys('11/13/2018', Key.RETURN);
-    
-        await this.driver.findElement(By.css('.btn.btn-lg.btn-primary')).click(); 
+        await this.driver.findElement(By.css('.btn.btn-lg.btn-primary')).click();
     }
 }
 
@@ -39,6 +40,8 @@ Then inside the test case, I will import the FormPage class.
 // examples/form_clean_up.js
 
 // Using Page Objects
+const FormPage = require('../pages/form_page');
+
 let formPage = new FormPage(driver);
 formPage.submitForm(driver);
 ```
